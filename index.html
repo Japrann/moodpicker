@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pick your mood</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orbs" id="bg-orbs" aria-hidden="true">
+      <span class="orb orb-a"></span>
+      <span class="orb orb-b"></span>
+      <span class="orb orb-c"></span>
+    </div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <nav class="flow-dots" id="flow-dots" aria-label="Progress">
+      <span class="dot is-active" data-step="intro"></span>
+      <span class="dot" data-step="mood"></span>
+      <span class="dot" data-step="response"></span>
+    </nav>
+
+    <main class="stage">
+      <section class="panel panel-card intro-panel" id="intro-panel" aria-label="Opening">
+        <p class="panel-kicker">step one</p>
+        <p class="intro-eyebrow" id="intro-eyebrow">hey</p>
+        <h1 class="intro-title">we're not jumping straight in</h1>
+        <p class="intro-lead">
+          take a breath. next you'll pick a mood—no pressure, just a tiny playground to mess with.
+        </p>
+        <div class="intro-actions" role="group" aria-label="Intro actions">
+          <button type="button" class="btn btn-secondary" id="intro-tap" aria-live="polite">
+            <span class="btn-secondary-inner">
+              <span class="btn-icon" aria-hidden="true">◇</span>
+              <span class="btn-secondary-text">
+                <span class="btn-ghost-label">tap if you're actually here</span>
+                <span class="intro-tap-hint" id="intro-tap-hint" hidden></span>
+              </span>
+            </span>
+          </button>
+          <button type="button" class="btn btn-primary" id="intro-continue">
+            <span class="btn-primary-inner">continue</span>
+            <span class="btn-primary-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="panel panel-card mood-panel" id="mood-panel" hidden aria-label="Mood picker">
+        <p class="panel-kicker">step two</p>
+        <h2 class="title">pick your mood</h2>
+        <div class="mood-grid" role="group" aria-label="Moods">
+          <button type="button" class="btn btn-mood" data-mood="tired">tired</button>
+          <button type="button" class="btn btn-mood" data-mood="bored">bored</button>
+          <button type="button" class="btn btn-mood" data-mood="good">good</button>
+          <button type="button" class="btn btn-mood" data-mood="idk">idk</button>
+        </div>
+      </section>
+
+      <section
+        class="panel panel-card response-panel"
+        id="response-panel"
+        hidden
+        aria-live="polite"
+        aria-label="Response"
+      >
+        <p class="panel-kicker">for you</p>
+        <div class="response-copy" id="response-copy"></div>
+        <div class="shuffle-block">
+          <button type="button" class="btn btn-shuffle" id="shuffle-btn">
+            <span class="btn-shuffle-label">shuffle</span>
+          </button>
+          <p class="shuffle-line" id="shuffle-line" aria-live="polite"></p>
+        </div>
+        <button type="button" class="btn btn-back" id="pick-another-btn">
+          <span class="btn-back-icon" aria-hidden="true">↩</span>
+          pick another mood
+        </button>
+      </section>
+    </main>
+
+    <button type="button" class="btn btn-why" id="why-btn" aria-haspopup="dialog" aria-controls="why-dialog">
+      why this exists?
+    </button>
+
+    <div class="why-backdrop" id="why-backdrop" hidden></div>
+    <div
+      class="why-dialog"
+      id="why-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="why-title"
+      hidden
+    >
+      <h2 id="why-title" class="visually-hidden">Why this exists</h2>
+      <p>no big reason</p>
+      <p>just thought you might try it</p>
+      <button type="button" class="btn btn-close" id="why-close">cool</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
